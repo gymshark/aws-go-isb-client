@@ -41,8 +41,10 @@ if err != nil {
 Create a new client instance with the API base URL and your JWT token:
 
 ```go
-client := isbclient.NewClient("https://your-api-endpoint", jwtToken)
+client := isbclient.NewClient("https://<CloudFrontDistributionUrl>/api", jwtToken)
 ```
+
+> `<CloudFrontDistributionUrl>` should be replaced with the `CloudFrontDistributionUrl` output from the CloudFormation compute stack.
 
 ## Making Requests
 
