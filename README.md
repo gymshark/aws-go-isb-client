@@ -27,7 +27,7 @@ import (
 )
 
 user := isbclient.NewAdminUserClaims("admin@gymshark.com")
-secret := "your-shared-secret"
+secret := "your-shared-secret" // Secret value from the CloudFormation stack output `JwtSecretArn`
 expiresIn := 2*time.Hour
 
 jwtToken, err := isbclient.GenerateJWT(user, secret, expiresIn)
@@ -35,6 +35,8 @@ if err != nil {
     // handle error
 }
 ```
+
+> The secret is the value stored in the secret referenced by the CloudFormation stack output `JwtSecretArn`.
 
 ## Initialising the Client
 
