@@ -21,9 +21,9 @@ Always reference these instructions first and fallback to search or bash command
 - Clear test cache: `go clean -testcache` -- use before `make test` to get accurate timing measurements.
 
 ### Manual Validation Scenarios:
-ALWAYS test basic client functionality after making changes by running:
+ALWAYS test basic client functionality after making changes by running this from the project directory:
 ```bash
-cd /tmp && cat > test_client.go << 'EOF'
+cat > /tmp/test_client.go << 'EOF'
 package main
 
 import (
@@ -56,8 +56,10 @@ func main() {
 	fmt.Println("Basic client functionality test completed successfully!")
 }
 EOF
-go run test_client.go
+go run /tmp/test_client.go
 ```
+
+**IMPORTANT**: Run this from the project root directory where `go.mod` exists, not from `/tmp`.
 
 Expected output should show JWT generation, client creation, and query building without errors.
 
